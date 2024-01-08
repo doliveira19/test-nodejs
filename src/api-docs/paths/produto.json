@@ -5,11 +5,6 @@
     "tags": [
       "produto"
     ],
-    "security": [
-      {
-        "bearerAuth": []
-      }
-    ],
     "requestBody": {
       "content": {
         "application/json": {
@@ -61,11 +56,6 @@
     "description": "Retorna todos os Produtos",
     "tags": [
       "produto"
-    ],
-    "security": [
-      {
-        "bearerAuth": []
-      }
     ],
     "responses": {
       "200": {

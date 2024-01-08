@@ -1,22 +1,22 @@
 import e from 'express';
 import 'express-async-errors';
 import produtoRoutes from './produto/produto.routes';
-import authRoutes from './auth/auth.routes';
+// import authRoutes from './auth/auth.routes';
 import { ZodError } from 'zod';
 import AppErrorHandler from '~/errorHandler/appErrorHandler';
-import authMiddleware from '~/middlewares/auth';
+// import authMiddleware from '~/middlewares/auth';
 
 const rootRoutes = e.Router();
 
-rootRoutes.use('/produto', authMiddleware, produtoRoutes);
-rootRoutes.use('/auth', authRoutes);
+rootRoutes.use('/produto', produtoRoutes);
+// rootRoutes.use('/auth', authRoutes);
 
 rootRoutes.use(
   async (error: Error, _request: e.Request, response: e.Response, _nextFunction: e.NextFunction) => {
 
-    if (error.name && error.name.includes('Token')) {
-      return response.status(401).json({ message: 'Token inválido' });
-    }
+    // if (error.name && error.name.includes('Token')) {
+    //     return response.status(401).json({ message: 'Token inválido' });
+    // }
 
     if (error instanceof ZodError) {
       let errors: string = 'ZodError: ';

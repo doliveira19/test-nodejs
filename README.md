@@ -1,74 +1,33 @@
-### Backend Test
-[![Build Status](https://travis-ci.org/belezanaweb/test-nodejs.svg?branch=master)](https://travis-ci.org/belezanaweb/test-nodejs)
+# API de cadastro de produtos 
 
-Esta é uma avaliação básica de código.
+## Requisitos
 
-O objetivo é conhecer um pouco do seu conhecimento/prática de RESTful e NodeJS.
+- Node
+- Redis
 
-Recomendamos que você não gaste mais do que 4 - 6 horas.
+## Criar conteiner Redis
 
-Faça um fork deste repositório.
+docker run --name redis -p 6379:6379 -d redis
 
-Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
+## Como usar a API
 
-### Tarefas
+1. Clonar repositório;
+2. Instalar dependências: `$ npm install`;
+3. Iniciar Redis (container);
+4. Iniciar a aplicação: `$ npm run dev`;
 
-Com a seguinte representação de produto:
+## npm scripts
 
-```json
-{
-    "sku": 43264,
-    "name": "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-    "inventory": {
-        "quantity": 15,
-        "warehouses": [
-            {
-                "locality": "SP",
-                "quantity": 12,
-                "type": "ECOMMERCE"
-            },
-            {
-                "locality": "MOEMA",
-                "quantity": 3,
-                "type": "PHYSICAL_STORE"
-            }
-        ]
-    },
-    "isMarketable": true
-}
-```
+Scripts que podem ser executados com o comando `$ npm run "script-name"`:
+* `dev`: Inicia a aplicação;
+* `test`: Executa testes unitários;
+* `build`: Realiza o build do projeto no diretório `./build`;
+* `start`: Executa o projeto depois da build;
 
-Crie endpoints para as seguintes ações:
+## Testes Unitários
 
-- [ ] Criação de produto onde o payload será o json informado acima (exceto as propriedades **isMarketable** e **inventory.quantity**)
+Foi feito o teste apenas do service de createProduto para exemplo
 
-- [ ] Edição de produto por **sku**
+## Documentação da api
 
-- [ ] Recuperação de produto por **sku**
-
-- [ ] Deleção de produto por **sku**
-
-### Requisitos
-
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **inventory.quantity**
-
-        A propriedade inventory.quantity é a soma da quantity dos warehouses
-
-- [ ] Toda vez que um produto for recuperado por **sku** deverá ser calculado a propriedade: **isMarketable**
-
-        Um produto é marketable sempre que seu inventory.quantity for maior que 0
-
-- [ ] Caso um produto já existente em memória tente ser criado com o mesmo **sku** uma exceção deverá ser lançada
-
-        Dois produtos são considerados iguais se os seus skus forem iguais
-
-
-- [ ] Ao atualizar um produto, o antigo deve ser sobrescrito com o que esta sendo enviado na requisição
-
-        A requisição deve receber o sku e atualizar com o produto que tbm esta vindo na requisição
-
-### Dicas
-
-- Os produtos podem ficar em memória, não é necessário persistir os dados
-- Testes são sempre bem-vindos :smiley:
+http://localhost:3000/api-docs

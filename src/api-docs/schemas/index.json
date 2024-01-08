@@ -35,31 +35,5 @@
       "name",
       "inventory"
     ]
-  },
-  "LoginInput": {
-    "type": "object",
-    "properties": {
-      "email": {
-        "type": "string"
-      },
-      "password": {
-        "type": "string"
-      }
-    },
-    "required": [
-      "email",
-      "password"
-    ]
-  },
-  "LoginResponse": {
-    "type": "object",
-    "properties": {
-      "token": {
-        "type": "string"
-      }
-    },
-    "example": {
-      "token": "abcdefghijklmnopqrstuvxz"
-    }
   }
 }

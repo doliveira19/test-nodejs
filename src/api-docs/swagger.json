@@ -15,16 +15,9 @@
     {
       "name": "produto",
       "description": "CRUD de Produtos"
-    },
-    {
-      "name": "auth",
-      "description": "Login"
     }
   ],
   "paths": {
-    "/auth/login": {
-      "$ref": "./paths/auth.json"
-    },
     "/produto": {
       "$ref": "./paths/produto.json"
     },
@@ -35,13 +28,6 @@
   "components": {
     "schemas": {
       "$ref": "schemas/index.json"
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      }
     }
   }
 }

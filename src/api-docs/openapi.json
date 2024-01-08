@@ -15,64 +15,15 @@
     {
       "name": "produto",
       "description": "CRUD de Produtos"
-    },
-    {
-      "name": "auth",
-      "description": "Login"
     }
   ],
   "paths": {
-    "/auth/login": {
-      "post": {
-        "summary": "Login",
-        "description": "Realiza Login simples na aplicação para que seja retornado o token para uso nas demais rotas",
-        "tags": [
-          "auth"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginInput"
-              },
-              "example": {
-                "email": "teste@teste.com.br",
-                "password": "teste"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Token para usar nas outras rotas",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LoginInput"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
     "/produto": {
       "post": {
         "summary": "Criar Produto",
         "description": "Realiza o cadastro de um produto",
         "tags": [
           "produto"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
         ],
         "requestBody": {
           "content": {
@@ -126,11 +77,6 @@
         "tags": [
           "produto"
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "responses": {
           "200": {
             "description": "Retorna um array com todos os Produtos",
@@ -157,11 +103,6 @@
         "description": "Retorna um Produto",
         "tags": [
           "produto"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
         ],
         "parameters": [
           {
@@ -198,11 +139,6 @@
         "description": "Atualiza um Produto",
         "tags": [
           "produto"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
         ],
         "parameters": [
           {
@@ -267,11 +203,6 @@
         "tags": [
           "produto"
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "sku",
@@ -296,21 +227,6 @@
   },
   "components": {
     "schemas": {
-      "LoginInput": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email",
-          "password"
-        ]
-      },
       "Produto": {
         "type": "object",
         "properties": {
@@ -347,24 +263,6 @@
           "name",
           "inventory"
         ]
-      },
-      "LoginResponse": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "token": "abcdefghijklmnopqrstuvxz"
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   }
