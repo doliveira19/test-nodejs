@@ -10,8 +10,7 @@
     "prebuild": "rm -rf ./build",
     "build": "cross-env NODE_ENV=prod ttsc --p ./tsconfig.json",
     "postinstall": "cp -n envs/.env.local .env || true;",
-    "api-doc:bundler": " redocly bundle src/api-docs/swagger.json --output src/api-docs/openapi.json --ext json;",
-    "test:dev": "jest -i --passWithNoTests --forceExit"
+    "api-doc:bundler": " redocly bundle src/api-docs/swagger.json --output src/api-docs/openapi.json --ext json;"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",

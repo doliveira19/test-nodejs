@@ -1,4 +1,10 @@
-# API de cadastro de produtos 
+# API de cadastro de produtos
+
+## Tecnologias
+
+- Node
+- Typescript
+- Redis
 
 ## Requisitos
 
