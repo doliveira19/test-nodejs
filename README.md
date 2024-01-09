@@ -30,10 +30,6 @@ Scripts que podem ser executados com o comando `$ npm run "script-name"`:
 * `build`: Realiza o build do projeto no diretório `./build`;
 * `start`: Executa o projeto depois da build;
 
-## Testes Unitários
-
-Foi feito o teste apenas do service de createProduto para exemplo
-
 ## Documentação da api
 
 http://localhost:3000/api-docs
