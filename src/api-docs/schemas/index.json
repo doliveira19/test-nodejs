@@ -1,0 +1,39 @@
+{
+  "Produto": {
+    "type": "object",
+    "properties": {
+      "sku": {
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      },
+      "inventory": {
+        "type": "object",
+        "properties": {
+          "warehouses": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "locality": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "required": [
+      "sku",
+      "name",
+      "inventory"
+    ]
+  }
+}
